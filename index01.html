@@ -47,7 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  
   gtag('config', 'AW-1061271901');
 </script>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -96,7 +96,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			 </ul>
 			 <form class="form-inline my-2 my-lg-0">
 				 <!--  <button type="button" class="btn btn-success"  onclick="location.href='https://lin.ee/3t3WhGL';">ติดต่อผ่านไลน์</button> -->
-				 <a href="what365.html"><img alt="" height="30" src="images/what365.png" style="margin-right: 5px;" width="auto"></a><a class="fcc-btn" href="https://lin.ee/3t3WhGL" style="margin-right: 5px;">ปรึกษาผู้เชี่ยวชาญ</a><a class="fcc-btn02" href="mailto:sales@m365center.com?subject=Request for Quotation">ขอใบเสนอราคา</a>
+				<a href="what365.html"><img alt="" height="30" src="images/what365.png" style="margin-right: 5px;" width="auto"></a>
+				<!-- <a
+					class="fcc-btn" href="https://lin.ee/3t3WhGL" style="margin-right: 5px;">ปรึกษาผู้เชี่ยวชาญ</a><a class="fcc-btn02"
+					href="mailto:sales@m365center.com?subject=Request for Quotation">ขอใบเสนอราคา</a> -->
 			 </form>
 		 </div>
 </div>
@@ -1155,10 +1158,87 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 		</div>
 
-	</div></div><div class="col-lg-6"><h1 class="topicA margin-bottom50">สอบถามข้อมูลเพิ่มเติม</h1><p>โทร 02-072-1900 / อีเมล webcentral@indigy.com</p> <input type="text" placeholder="ชื่อบริษัทของคุณ" required /><div class="row"><div class="col-md-6"> <input type="tel" placeholder="เบอร์โทรศัพท์" required /></div><div class="col-md-6"><input type="email" placeholder="อีเมลติดต่อกลับ" required /></div></div> <textarea rows="4"  placeholder="รายละเอียด" required ></textarea><div style="text-align:right;"><a class="fcc-btn03" href="">ส่งข้อความ</a></div><!--<div style="padding:50px 0px 30px 0px; text-align:center; background-color:#0A44E3; border-radius:50px;"><div class="social margin-bottom20px">
+	</div></div>
+<!-- <div class="col-lg-6">
+	<h1 class="topicA margin-bottom50">สอบถามข้อมูลเพิ่มเติม</h1>
+	<p>โทร 02-072-1900 / อีเมล webcentral@indigy.com</p> <input type="text" placeholder="ชื่อบริษัทของคุณ" required />
+	<div class="row">
+		<div class="col-md-6"> <input type="tel" placeholder="เบอร์โทรศัพท์" required /></div>
+		<div class="col-md-6"><input type="email" placeholder="อีเมลติดต่อกลับ" required /></div>
+	</div> <textarea rows="4" placeholder="รายละเอียด" required></textarea>
+	<div style="text-align:right;"><a class="fcc-btn03" href="">ส่งข้อความ</a></div>
+
+	<div style="padding:50px 0px 30px 0px; text-align:center; background-color:#0A44E3; border-radius:50px;"><div class="social margin-bottom20px">
 					<a href="mailto:sales@m365center.com?subject=Request for Information">
-					<img alt="" height="41" src="images/icon-email.png" width="41"></a><a href="https://lin.ee/3t3WhGL" target="_blank"><img alt="" height="41" src="images/icon-line.png" width="41"></a><a href="https://www.facebook.com/indigy.connext" target="_blank"><img alt="" height="41" src="images/icon-facebook.png" width="41"></a><a href="https://www.youtube.com/channel/UC-c4LyCPKWswpur0pBavu7Q" target="_blank"><img alt="" height="41" src="images/icon-youtube.png" width="41"></a></div>-->
-</div></div></div>
+					<img alt="" height="41" src="images/icon-email.png" width="41"></a><a href="https://lin.ee/3t3WhGL" target="_blank"><img alt="" height="41" src="images/icon-line.png" width="41"></a><a href="https://www.facebook.com/indigy.connext" target="_blank"><img alt="" height="41" src="images/icon-facebook.png" width="41"></a><a href="https://www.youtube.com/channel/UC-c4LyCPKWswpur0pBavu7Q" target="_blank"><img alt="" height="41" src="images/icon-youtube.png" width="41"></a>
+	</div>
+</div> -->
+
+<div class="col-lg-6">
+	<h1 class="topicA margin-bottom50">สอบถามข้อมูลเพิ่มเติม</h1>
+	<p>โทร 02-072-1900 / อีเมล webcentral@indigy.com</p>
+
+	<!-- Alert placeholder ใส่ตรงนี้ -->
+	<div id="formAlert" class="alert d-none alert-dismissible fade show" role="alert">
+		<span id="formAlertText"></span>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+
+	<form id="contactForm">
+		<div class="row">
+		<div class="col-md-12">
+			<input type="text" name="title" placeholder="ชื่อบริษัทของคุณ" required />
+		</div>
+		<!-- <div class="col-md-6">
+			<input type="text" name="name" placeholder="ชื่อของคุณ" required />
+		</div> -->
+			
+		</div>
+		
+
+		<div class="row">
+		<div class="col-md-6">
+			<input type="tel" name="mobile" placeholder="เบอร์โทรศัพท์" required />
+		</div>
+		<div class="col-md-6">
+			<input type="email" name="email" placeholder="อีเมลติดต่อกลับ" required />
+		</div>
+		</div>
+
+		<div class="mb-3 lh-base">
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" name="consultant" id="consultant" value="consultant">
+				<label class="form-check-label" for="consultant">ปรึกษาผู้เชี่ยวชาญ</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" name="quotation" id="quotation" value="quotation">
+				<label class="form-check-label" for="quotation">ขอใบเสนอราคา</label>
+			</div>
+		</div>
+
+		<textarea name="details" rows="4" placeholder="รายละเอียดเพิ่มเติม" required></textarea>
+
+		<div class="mb-3 lh-base">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" name="acknowledge" id="acknowledge" required>
+				<label class="form-check-label" for="acknowledge">
+				ฉันรับทราบและยอมรับ <a href="https://indigy.com/company.html" target="_blank">นโยบายความเป็นส่วนตัว</a>
+				</label>
+			</div>
+		</div>
+		<!-- reCAPTCHA -->
+		<div class="g-recaptcha" data-sitekey="6LfCDP0rAAAAAK8g4SjQS7qToNMB_gN5Jm2xIH6n"></div>
+		
+
+		<div style="text-align:right;">
+			<button style="border: none;" type="submit" class="fcc-btn03">ส่งข้อมูล</button>
+		</div>
+		
+	</form>
+	</div>
+</div>
+
+</div></div>
 <!-- End Navigation-->
 <!-- Class "cbp-spmenu-open" gets applied to menu -->
 <div class="footer">
@@ -1331,6 +1411,79 @@ $('body').toggleClass('').toggleClass('fullscreen');
   gtag('js', new Date());
 
   gtag('config', 'UA-124901587-1');
+</script>
+<script>
+	const form = document.getElementById("contactForm");
+	const alertBox = document.getElementById("formAlert");
+	const alertText = document.getElementById("formAlertText");
+
+	form.addEventListener("submit", function(e){
+		const consultantChecked = document.getElementById('consultant').checked;
+		const quotationChecked = document.getElementById('quotation').checked;
+
+		if (!consultantChecked && !quotationChecked) {
+			e.preventDefault(); // ยกเลิกการ submit
+			showAlert("กรุณาเลือกอย่างน้อยหนึ่งตัวเลือก: ปรึกษาผู้เชี่ยวชาญ หรือ ขอใบเสนอราคา", "warning");
+			return;
+		}
+		
+		e.preventDefault();
+
+		const recaptchaResponse = grecaptcha.getResponse();
+		if (!recaptchaResponse) {
+			showAlert("กรุณายืนยันตัวตนก่อนส่งแบบฟอร์ม", "warning");
+			return;
+		}
+
+		const formData = new FormData(this);
+		const data = {
+			title: formData.get('title'),
+			// name: formData.get('name'),
+			mobile: formData.get('mobile'),
+			email: formData.get('email'),
+			details: formData.get('details'),
+			acknowledge: formData.get('acknowledge') === 'on',
+			consultant: formData.get('consultant') === 'consultant',
+			quotation: formData.get('quotation') === 'quotation',
+			recaptchaToken: recaptchaResponse
+		};
+
+		// From Power Automate
+		const postUrl = "https://defaulta0746c2e942d455a83e426a96f7271.bb.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/c45ac6b47a614b989595823af07e009f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=niV6V5v80WsyCq8OFumz2lVp8uX8CQP2TmWRcXiVadU";
+
+		fetch(postUrl, {
+			method: "POST",
+			headers: {
+			"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		})
+		.then(res => {
+			if (!res.ok) throw new Error("เกิดข้อผิดพลาดในการส่งข้อมูล");
+			return res.text();
+		})
+		.then(resText => {
+			console.log("Response:", resText);
+			showAlert("ส่งข้อมูลเรียบร้อย!", "success");
+			form.reset();
+			grecaptcha.reset(); 
+		})
+		.catch(err => {
+			console.error(err);
+			showAlert("ส่งข้อมูลไม่สำเร็จ โปรดลองอีกครั้ง", "danger");
+		});
+	});
+
+	function showAlert(message, type="info") {
+	alertText.textContent = message;
+	alertBox.className = `alert alert-${type} alert-dismissible fade show`;
+	alertBox.classList.remove("d-none");
+
+	setTimeout(() => {
+		alertBox.classList.add("d-none");
+	}, 5000);
+	}
+
 </script>
 
 </body>
